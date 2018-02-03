@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        
+        html {
+            min-height: 100%;
+            /* make sure it is at least as tall as the viewport */
+            position: relative;
+        }
+        
+        body {
+            height: 100%;
+            /* force the BODY element to match the height of the HTML element */
+        }
+        
+        .container {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            z-index: -1;
+            /* Remove this line if it's not going to be a background! */
+        }
+        /* .dollar {
+            animation: rain linear 4s infinite;
+        } */
+        
+        @keyframes rain {
+            from {}
+            to {
+                transform: translate(0px, 5000px);
+            }
+        }
+    </style>
+    <div class="container">
+        <button id="create">
+        Criar dollar
+    </button>
+
+        <svg id="draw" x="0px" y="0px" viewBox="0 0 4740 4740">
+            </svg>
+    </div>
+    <script>
+        var draw = document.querySelector('#draw');
+        var svgNS = 'http://www.w3.org/2000/svg';
+
+        // var animation = document.querySelector('#animation');
+
+        function createDollar() {
+            var randomX = getRandomIntInclusive(0, 4500);
+            var animation = document.createElementNS(svgNS, 'animateTransform');
+            animation.setAttributeNS(null, "attributeName", 'transform')
+            animation.setAttributeNS(null, "type", 'translate')
+            animation.setAttributeNS(null, "dur", getRandomIntInclusive(2, 10))
+            animation.setAttributeNS(null, "repeatCount", 'indefinite')
+            animation.setAttributeNS(null, "from", `${randomX} -100`)
+            animation.setAttributeNS(null, "to", `${randomX} 5000`)
+            animation.setAttributeNS(null, "id", `animate${randomX}`)
+
+            var myDollar = document.createElementNS(svgNS, "path");
+            myDollar.setAttributeNS(null, "d", 'M271.75,224.6h-69.3c-35.3,0-64-28.7-64-64s28.7-64,64-64h122.3c6.6,0,12-5.4,12-12s-5.4-12-12-12h-75.7V12   c0-6.6-5.4-12-12-12s-12,5.4-12,12v60.6h-22.7c-48.5,0-88,39.5-88,88s39.5,88,88,88h69.3c35.3,0,64,28.7,64,64s-28.7,64-64,64   h-124.5c-6.6,0-12,5.4-12,12s5.4,12,12,12h77.9V462c0,6.6,5.4,12,12,12s12-5.4,12-12v-61.4h23.3c0.1,0,0.3,0,0.4,0   c48-0.6,86.9-39.8,86.9-88C359.75,264.1,320.25,224.6,271.75,224.6z');
+            myDollar.setAttributeNS(null, "fill", 'darkgreen');
+            // myDollar.setAttributeNS(null, "class", 'dollar');
+            myDollar.appendChild(animation)
+            draw.appendChild(myDollar);
+        }
+
+        function getRandomIntInclusive(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var btn = document.querySelector('#create');
+        btn.addEventListener('click', createDollar);
+    </script>
+</body>
+
+</html>
