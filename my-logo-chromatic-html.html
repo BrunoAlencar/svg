@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <style>
-      * {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -18,30 +20,37 @@
         body {
             padding: 50px;
         }
-/* square.getTotalLength() */
+        /* square.getTotalLength() */
+        
         #square {
             stroke-width: 16px;
             stroke-dasharray: 1345;
             stroke-dashoffset: 1345;
-            animation: draw 4s linear forwards; 
+            animation: draw 4s linear forwards;
             stroke: #000;
         }
+        
         #circle {
             stroke-width: 16px;
             stroke-dasharray: 1055;
             stroke-dashoffset: 1055;
-            animation: draw 4s linear forwards; 
+            animation: draw 4s linear forwards;
         }
+        
         #triangle {
             stroke-width: 9px;
             stroke-dasharray: 1083;
             stroke-dashoffset: 1083;
-            animation: draw 4s linear forwards; 
+            animation: draw 4s linear forwards;
         }
-        #square,  #circle, #triangle {
-            transition: fill 5s;
+        
+        #square,
+        #circle,
+        #triangle {
+            transition: fill 3s;
             transition-timing-function: ease-in-out;
         }
+        
         #jbma {
             fill: transparent;
             stroke-width: 2.5px;
@@ -50,23 +59,20 @@
             stroke-dashoffset: 281;
             animation: draw 4s linear forwards;
         }
-        #jbma path{
+        
+        #jbma path {
             transition: fill .8s;
         }
         
-
         @keyframes draw {
             to {
                 stroke-dashoffset: 0;
             }
         }
-
-
-
     </style>
-    
-    
-<svg width="400"  x="0px" y="0px" viewBox="0 0 352.2 352.2" >
+
+
+    <svg width="400" x="0px" y="0px" viewBox="0 0 352.2 352.2">
     <rect id="square" x="8" y="8" fill="transparent" stroke="#000000" stroke-width="16"  width="336.2" height="336.2"/>
     <circle id="circle" fill="transparent" stroke="#000000" stroke-width="16" stroke-miterlimit="10" cx="175.9" cy="176.3" r="167.9"/>
     <linearGradient id="triangulo_1_" gradientUnits="userSpaceOnUse" x1="175.8503" y1="347.7069" x2="175.8503" y2="13.2069">
